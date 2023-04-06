@@ -1,6 +1,5 @@
 import { Base } from 'src/utils/base'
-import { VideoEntity } from 'src/video/video.entity'
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm'
+import { Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm'
 import { UserEntity } from './user.entity'
 
 @Entity('Subscription')
@@ -11,5 +10,5 @@ export class SubscriptionEntity extends Base {
 
   @ManyToOne(() => UserEntity, user => user.subscriptions)
   @JoinColumn({ name: 'to_channel_id' })
-  toChanel: VideoEntity[]
+  toChannel: UserEntity
 }

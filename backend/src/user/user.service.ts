@@ -16,7 +16,7 @@ export class UserService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(SubscriptionEntity)
-    private readonly subsciptionRepository: Repository<SubscriptionEntity>
+    private readonly subscriptionRepository: Repository<SubscriptionEntity>
   ) {}
 
   async byId(id: number) {
@@ -27,7 +27,7 @@ export class UserService {
       relations: {
         videos: true,
         subscriptions: {
-          toChanel: true
+          toChannel: true
         }
       },
       order: {
@@ -62,18 +62,18 @@ export class UserService {
       fromUser: { id }
     }
 
-    const isSubscribed = await this.subsciptionRepository.findOneBy(
+    const isSubscribed = await this.subscriptionRepository.findOneBy(
       userSubscription
     )
 
     if (!isSubscribed) {
-      const newSubscribe = await this.subsciptionRepository.create(
+      const newSubscribe = await this.subscriptionRepository.create(
         userSubscription
       )
-      await this.subsciptionRepository.save(newSubscribe)
+      await this.subscriptionRepository.save(newSubscribe)
       return true
     }
-    await this.subsciptionRepository.delete(userSubscription)
+    await this.subscriptionRepository.delete(userSubscription)
     return false
   }
 

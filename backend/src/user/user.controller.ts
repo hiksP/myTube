@@ -42,7 +42,7 @@ export class UserController {
 
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
-  @Patch('/subscriber/:channelId')
+  @Patch('/subscribe/:channelId')
   @Auth()
   async SubscribeToChannel(
     @CurrentUser('id') id: number,

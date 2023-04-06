@@ -32,6 +32,6 @@ export class UserEntity extends Base {
   @OneToMany(() => SubscriptionEntity, subscribe => subscribe.fromUser)
   subscriptions: SubscriptionEntity[]
 
-  @OneToMany(() => SubscriptionEntity, subscribe => subscribe.toChanel)
+  @OneToMany(() => SubscriptionEntity, subscribe => subscribe.toChannel)
   subscribers: SubscriptionEntity[]
 }
