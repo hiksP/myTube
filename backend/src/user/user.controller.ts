@@ -6,7 +6,6 @@ import {
   Param,
   Patch,
   Post,
-  Put,
   UsePipes,
   ValidationPipe
 } from '@nestjs/common'
@@ -34,7 +33,7 @@ export class UserController {
 
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
-  @Put('/:id')
+  @Post('/:id')
   @Auth()
   async patchUser(@Param('id') id: string, @Body() dto: userDto) {
     return this.userService.patchUser(+id, dto)

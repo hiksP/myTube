@@ -12,23 +12,26 @@ export class VideoEntity extends Base {
   isPublic: boolean
 
   @Column({ default: 0 })
-  views?: number
+  views: number
 
   @Column({ default: 0 })
-  likes?: number
+  likes: number
 
   @Column({ default: 0 })
-  duration?: number
+  duration: number
 
   @Column({ default: '', name: 'video_path' })
   videoPath: string
+
+  @Column()
+  description: string
 
   @Column({ default: '', name: 'thumbnail_path' })
   thumbnailPath: string
 
   @ManyToOne(() => UserEntity, user => user.videos)
   @JoinColumn({ name: 'user_id' })
-  user: UserEntity[]
+  user: UserEntity
 
   @OneToMany(() => CommentEntity, comment => comment.video)
   comments: CommentEntity[]
