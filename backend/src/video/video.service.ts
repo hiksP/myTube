@@ -99,7 +99,8 @@ export class VideoService {
   async getTrends() {
     return this.videoRepository.find({
       where: {
-        views: MoreThan(0)
+        views: MoreThan(0),
+        isPublic: true
       },
       relations: {
         user: true,
