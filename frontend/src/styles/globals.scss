@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'react-redux-toastr/src/styles/index';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.redux-toast {
+  .toastr {
+    @apply shadow;
+    background-color: #272532;
+
+    &.rrt-success {
+      background-color: #75d3a8;
+    }
+
+    &.rrt-warning {
+      background-color: #f7ca8c;
+    }
+
+    &.rrt-info {
+      background-color: #749ce0;
+    }
+
+    &.rrt-error {
+      background-color: #ec6b6b;
+    }
+  }
+}
