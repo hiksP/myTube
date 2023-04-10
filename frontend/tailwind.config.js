@@ -2,7 +2,8 @@ import plugin from 'tailwindcss/plugin'
 
 /** @type {import('tailwindcss').Config} */
 export const content = [
-  './pages/**/*.{js,ts,tsx,jsx}',
+  './src/pages/**/*.{js,ts,tsx,jsx}',
+  './src/components/pages/**/*.{js,ts,tsx,jsx}',
   './src/components/**/*.{js,ts,tsx,jsx}'
 ]
 export const theme = {
@@ -10,7 +11,7 @@ export const theme = {
     colors: {
       main: '#f2f2f2',
       darkRed: '#ac231c',
-      lightBlack: '#5e5c5d',
+      lightBlack: '#3c3d3d',
       lightGray: '#bcbcbc',
       darkWhite: '#eaeaea'
     },
