@@ -1,5 +1,5 @@
 import { axiosApi } from '../api/axiosApi'
-import { IAuthData } from '../interfaces/authData.interface'
+import { IAuthData } from '../types/authData.interface'
 
 export const AuthService = {
   async login(email: string, password: string) {

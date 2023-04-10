@@ -1,0 +1,27 @@
+.item {
+  @apply flex flex-row items-center;
+}
+
+.link {
+  @apply flex flex-row items-center;
+}
+
+.active {
+  @apply font-bold text-lightBlack;
+}
+
+.icon {
+  @apply mr-3;
+}
+
+.image {
+  @apply mr-2 rounded-full object-contain;
+}
+
+.title {
+  @apply text-lg font-semibold text-lightGray;
+}
+
+.titleActie {
+  @apply border-b-[3px] border-b-darkRed pb-[2px] text-lg font-semibold text-lightBlack;
+}

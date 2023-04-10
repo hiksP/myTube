@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './Sidebar.module.scss'
 import Image from 'next/image'
 import logoHeader from '../../assets/logoHeader.png'
+import { menuItems } from '../ui/Menu/menu.data'
 import Menu from '../ui/Menu/Menu'
 
 const Sidebar: FC = () => {
@@ -17,9 +18,8 @@ const Sidebar: FC = () => {
         />
         <h1 className={styles.title}>MyTube</h1>
       </div>
-      <h2 className={styles.menuTitle}>Меню</h2>
       <nav className={styles.navigation}>
-        <Menu></Menu>
+        <Menu items={menuItems} title='Меню'></Menu>
       </nav>
     </div>
   )

@@ -1,25 +1,30 @@
-import { IMenuItem } from '../../../interfaces/menu.interface'
-import { HiChartBar, HiCollection, HiHome, HiStar } from 'react-icons/hi'
+import { IMenuItem } from '../../../types/menuItem.interface'
+import {
+  HiOutlineChartBar,
+  HiOutlineCollection,
+  HiOutlineHome,
+  HiOutlineUserCircle
+} from 'react-icons/hi'
 
-export const menu: IMenuItem[] = [
+export const menuItems: IMenuItem[] = [
   {
     title: 'Главная',
-    icon: HiHome,
+    icon: HiOutlineHome,
     link: '/'
   },
   {
     title: 'Тренды',
-    icon: HiChartBar,
-    link: '/trending'
+    icon: HiOutlineChartBar,
+    link: '/trends'
   },
   {
     title: 'Мой канал',
-    icon: HiStar,
+    icon: HiOutlineUserCircle,
     link: '/my-channel'
   },
   {
     title: 'Мои подписки',
-    icon: HiCollection,
+    icon: HiOutlineCollection,
     link: '/subscriptions'
   }
 ]

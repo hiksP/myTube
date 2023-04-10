@@ -1,0 +1,7 @@
+.title {
+  @apply text-xl font-bold text-lightBlack;
+}
+
+.menu {
+  @apply mt-10 flex flex-col gap-4;
+}

@@ -1,5 +1,5 @@
 .sidebar {
-  @apply fixed flex h-screen w-[16%] flex-col border-r-[1px] border-lightBlack border-opacity-30 pl-6 pt-4;
+  @apply fixed flex h-screen w-[16%] flex-col border-r-[1px] border-lightBlack border-opacity-30 pl-4 pt-4;
 }
 
 .container {
@@ -11,9 +11,5 @@
 }
 
 .title {
-  @apply ml-2 text-3xl font-bold;
-}
-
-.menuTitle {
-  @apply mt-14 text-xl font-semibold;
+  @apply mb-14 ml-2 text-3xl font-bold;
 }
