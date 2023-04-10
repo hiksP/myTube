@@ -1,9 +1,9 @@
 .header {
-  @apply ml-[300px] flex w-full items-center justify-between;
+  @apply ml-[10%] flex w-full items-center justify-between pt-4;
 }
 
 .searchBar {
-  @apply flex h-[45px] w-[300px] items-center rounded-2xl border border-solid border-lightBlack px-3;
+  @apply ml-[21%] flex h-[45px] w-[45%] items-center rounded-2xl border border-solid border-lightBlack px-3;
 }
 
 .searchPic {
@@ -11,7 +11,7 @@
 }
 
 .input {
-  @apply border-none bg-transparent text-base font-medium text-lightBlack outline-none;
+  @apply w-full border-none bg-transparent text-base font-medium text-lightBlack outline-none;
 }
 
 .list {
@@ -33,5 +33,5 @@
 }
 
 .avatar {
-  @apply rounded-full;
+  @apply rounded-full shadow-lg;
 }
