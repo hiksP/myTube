@@ -1,5 +1,8 @@
 .item {
-  @apply flex flex-row items-center;
+  @apply flex flex-row items-center transition-opacity;
+  &:hover {
+    @apply opacity-75;
+  }
 }
 
 .link {
