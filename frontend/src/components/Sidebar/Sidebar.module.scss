@@ -13,3 +13,7 @@
 .title {
   @apply mb-14 ml-2 text-3xl font-bold;
 }
+
+.line {
+  @apply mt-1 h-[1px] w-[75%] border-b-[1px] border-lightGray;
+}

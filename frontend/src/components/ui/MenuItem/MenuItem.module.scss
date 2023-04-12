@@ -1,5 +1,5 @@
 .item {
-  @apply flex flex-row items-center transition-opacity;
+  @apply block flex-row items-center transition-opacity;
   &:hover {
     @apply opacity-75;
   }
@@ -9,12 +9,27 @@
   @apply flex flex-row items-center;
 }
 
+.container {
+  @apply relative flex;
+  &::before {
+    @apply absolute -left-7 top-0 h-full w-[2.5px] -translate-x-1 rounded-lg bg-darkRed opacity-0 transition-transform;
+    content: '';
+  }
+  &:hover::before {
+    @apply translate-x-0 opacity-100;
+  }
+}
+
 .active {
   @apply font-bold text-lightBlack;
 }
 
 .icon {
-  @apply mr-3;
+  @apply mr-4 rounded-full bg-lightGray p-2 text-white;
+}
+
+.iconActive {
+  @apply bg-darkRed;
 }
 
 .image {
@@ -25,6 +40,6 @@
   @apply text-lg font-semibold text-lightGray;
 }
 
-.titleActie {
-  @apply border-b-[3px] border-b-darkRed pb-[2px] text-lg font-semibold text-lightBlack;
+.titleActive {
+  @apply text-lg font-semibold text-lightBlack;
 }

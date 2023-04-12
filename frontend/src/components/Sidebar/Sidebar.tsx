@@ -18,9 +18,11 @@ const Sidebar: FC = () => {
         />
         <h1 className={styles.title}>MyTube</h1>
       </div>
-      <nav className={styles.navigation}>
+      <nav>
         <Menu items={menuItems} title='Меню'></Menu>
+        <div className={styles.line}></div>
       </nav>
+      <Menu items={menuItems} title='Мои подписки'></Menu>
     </div>
   )
 }
