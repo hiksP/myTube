@@ -1,0 +1,54 @@
+.videos {
+  @apply relative mt-7 flex flex-row items-center justify-between gap-36;
+}
+
+.mostPopular {
+  @apply flex  flex-col;
+}
+
+.content {
+  @apply absolute left-4 top-10;
+}
+
+.imageContainer {
+  @apply rounded-xl bg-black;
+  &:hover {
+    @apply cursor-pointer;
+  }
+}
+
+.thumbnail {
+  @apply rounded-xl object-contain opacity-50 shadow-2xl;
+}
+
+.title {
+  @apply mb-[27%] text-2xl font-semibold text-white;
+}
+
+.avatar {
+  @apply mb-2 rounded-full border border-lightGray p-1;
+}
+
+.name {
+  @apply text-lg  font-normal text-white;
+}
+
+.infoContainer {
+  @apply flex w-[650px] flex-row items-center justify-between;
+}
+
+.viewsContainer {
+  @apply mt-1 flex flex-row items-center justify-center gap-2;
+}
+
+.views {
+  @apply text-base font-normal text-white;
+}
+
+.durationContainer {
+  @apply flex h-5 w-14 items-center justify-center rounded-md bg-lightGray opacity-70;
+}
+
+.time {
+  @apply rounded-lg text-base font-normal text-lightBlack;
+}

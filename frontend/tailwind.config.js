@@ -32,11 +32,11 @@ export const theme = {
           opacity: 1,
           transform: 'scale(1)'
         }
-      },
-      animation: {
-        fade: 'fade .4s ease-in-out',
-        scaleIn: 'scaleIn .4s ease-in-out'
       }
+    },
+    animation: {
+      fade: 'fade .4s ease-in-out',
+      scaleIn: 'scaleIn .4s ease-in-out'
     }
   }
 }

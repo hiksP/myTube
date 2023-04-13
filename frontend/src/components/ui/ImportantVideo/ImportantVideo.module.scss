@@ -1,0 +1,58 @@
+.mostPopular {
+  @apply relative flex flex-col;
+  &:hover {
+    @apply cursor-pointer;
+  }
+}
+
+.content {
+  @apply absolute left-4 top-10;
+}
+
+.imageContainer {
+  @apply rounded-xl bg-black;
+}
+
+.thumbnail {
+  @apply rounded-xl object-contain opacity-50 shadow-2xl;
+}
+
+.title {
+  @apply mb-[27%] text-2xl font-semibold text-white;
+}
+
+.titleSmall {
+  @apply mb-20 text-xl font-semibold text-white;
+}
+
+.avatar {
+  @apply mb-2 rounded-full border border-lightGray p-1;
+}
+
+.name {
+  @apply text-lg  font-normal text-white;
+}
+
+.infoContainer {
+  @apply flex w-[650px] flex-row items-center justify-between;
+}
+
+.infoContainerSmall {
+  @apply flex w-[450px] flex-row items-center justify-between;
+}
+
+.viewsContainer {
+  @apply flex flex-row items-center justify-center gap-2 self-center;
+}
+
+.views {
+  @apply text-base font-normal text-white;
+}
+
+.durationContainer {
+  @apply flex h-5 w-14 items-center justify-center rounded-md bg-lightGray opacity-70;
+}
+
+.time {
+  @apply rounded-lg text-base font-normal text-lightBlack;
+}
