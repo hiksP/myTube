@@ -1,0 +1,11 @@
+.searchBar {
+  @apply ml-[21%] flex h-[45px] w-[45%] items-center rounded-2xl border border-solid border-lightBlack px-3;
+}
+
+.searchPic {
+  @apply mr-2;
+}
+
+.input {
+  @apply w-full border-none bg-transparent text-base font-medium text-lightBlack outline-none;
+}

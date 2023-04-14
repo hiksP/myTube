@@ -1,0 +1,21 @@
+.list {
+  @apply flex flex-row gap-4;
+}
+
+.notificationContainer {
+  @apply flex h-[50px] w-[50px] items-center justify-center rounded-full transition-colors;
+  &:hover {
+    @apply cursor-pointer bg-lightGray;
+  }
+}
+
+.avatarContainer {
+  @apply flex items-center justify-center;
+  &:hover {
+    @apply cursor-pointer;
+  }
+}
+
+.avatar {
+  @apply rounded-full shadow-lg;
+}
