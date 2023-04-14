@@ -1,7 +1,11 @@
 .mostPopular {
   @apply relative flex flex-col;
+  transition: 0.25s;
   &:hover {
     @apply cursor-pointer;
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }
 
@@ -14,7 +18,7 @@
 }
 
 .thumbnail {
-  @apply rounded-xl object-contain opacity-50 shadow-2xl;
+  @apply rounded-xl opacity-50 shadow-2xl;
 }
 
 .title {

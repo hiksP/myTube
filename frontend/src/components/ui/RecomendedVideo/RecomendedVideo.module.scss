@@ -1,0 +1,31 @@
+.item {
+  @apply relative flex h-[260] flex-col rounded-lg bg-lightGray;
+}
+
+.duration {
+  @apply absolute -right-1 top-1 h-[20px] w-[28px] rounded-lg bg-lightGray text-base;
+}
+
+.content {
+  @apply mt-2 flex flex-col justify-start;
+}
+
+.avatar {
+  @apply mb-[33px] rounded-full border-[1px] border-lightBlack p-1;
+}
+
+.author {
+  @apply mb-2 text-base font-normal text-lightBlack;
+}
+
+.videoTitle {
+  @apply mb-2 text-xl font-semibold text-black;
+}
+
+.infoContainer {
+  @apply flex flex-row gap-2;
+}
+
+.info {
+  @apply text-base font-light text-lightBlack;
+}
