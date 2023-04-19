@@ -23,7 +23,7 @@ export const login = createAsyncThunk<IAuthData, IAuthForm>(
   '/auth/login',
   async ({ email, password }, thunkAPI) => {
     try {
-      const response = await AuthService.register(email, password)
+      const response = await AuthService.login(email, password)
       toastr.success('Вход', 'Успешно выполнена')
       return response
     } catch (error) {

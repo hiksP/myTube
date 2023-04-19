@@ -1,6 +1,3 @@
-import { IAuthData } from '../types/authData.interface'
+import { useTypedSelector } from './useTypedSelector'
 
-export const useAuth = (): IAuthData => ({
-  user: null,
-  accessToken: ''
-})
+export const useAuth = () => useTypedSelector(state => state.auth)

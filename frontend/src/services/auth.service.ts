@@ -3,7 +3,7 @@ import { IAuthData } from '../types/authData.interface'
 
 export const AuthService = {
   async login(email: string, password: string) {
-    const response = await axiosApi.post<IAuthData>('/auth/logn', {
+    const response = await axiosApi.post<IAuthData>('/auth/login', {
       email,
       password
     })

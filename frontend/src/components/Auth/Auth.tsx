@@ -7,11 +7,17 @@ import Link from 'next/link'
 import { FaHouseUser } from 'react-icons/fa'
 import Button from '../ui/Button/Button'
 import AuthInput from '../ui/AuthInput/AuthInput'
+import { useAuth } from '../../hooks/useAuth'
+import { useActions } from '../../hooks/useAction'
 
 const Auth: FC = () => {
   const { ref, setIsShow, isShow } = useClosing(false)
 
   const [type, setType] = useState<'login' | 'register'>('login')
+
+  const { login, register: registerAction } = useActions()
+
+  const { isLoading } = useAuth()
 
   const {
     register,
@@ -21,7 +27,10 @@ const Auth: FC = () => {
     mode: 'onChange'
   })
 
-  const onSubmit: SubmitHandler<IAuthForm> = data => {}
+  const onSubmit: SubmitHandler<IAuthForm> = data => {
+    if (type === 'login') login(data)
+    else if (type === 'register') registerAction(data)
+  }
 
   return (
     <div className={styles.container}>
@@ -54,8 +63,14 @@ const Auth: FC = () => {
             type='password'
             error={errors.password}
           />
-          <Button onClick={() => setType('login')}>Войти</Button>
-          <button className={styles.link} onClick={() => setType('register')}>
+          <Button onClick={() => setType('login')} disabled={isLoading}>
+            Войти
+          </Button>
+          <button
+            className={styles.link}
+            onClick={() => setType('register')}
+            disabled={isLoading}
+          >
             Регистрация
           </button>
         </form>
