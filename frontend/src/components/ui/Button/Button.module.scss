@@ -1,5 +1,5 @@
 .button {
-  @apply h-[35px] w-[75px] rounded-xl bg-darkRed py-1 text-base font-medium text-darkWhite transition-opacity;
+  @apply mt-2 h-[35px] w-[75px] rounded-xl bg-darkRed py-1 text-base font-medium text-darkWhite transition-opacity;
   &:hover {
     @apply cursor-pointer opacity-60;
   }

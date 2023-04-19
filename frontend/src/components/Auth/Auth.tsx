@@ -47,10 +47,11 @@ const Auth: FC = () => {
               required: 'Вы пропустили пароль',
               minLength: {
                 value: 6,
-                message: 'Пароль не может быть короче 6 символов!'
+                message: 'Минимальная длина - 6 символов'
               }
             })}
             placeholder='Пароль'
+            type='password'
             error={errors.password}
           />
           <Button onClick={() => setType('login')}>Войти</Button>
