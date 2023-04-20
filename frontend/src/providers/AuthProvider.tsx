@@ -16,3 +16,5 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
     <DynamicRoleCheck Component={{ isOnlyUser }}>{children}</DynamicRoleCheck>
   )
 }
+
+export default AuthProvider
