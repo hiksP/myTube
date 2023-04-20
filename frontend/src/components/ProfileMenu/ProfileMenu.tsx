@@ -10,6 +10,7 @@ import { FaUser } from 'react-icons/fa'
 import { SiYoutubestudio } from 'react-icons/si'
 import { GrLogout } from 'react-icons/gr'
 import Link from 'next/link'
+import VideoUpload from '../VideoUpload/VideoUpload'
 
 const ProfileMenu: FC = () => {
   const { user } = useAuth()
@@ -17,8 +18,6 @@ const ProfileMenu: FC = () => {
   const { data, isLoading } = api.useGetProfileQuery(null, {
     skip: !user
   })
-
-  console.log(data?.avatarPath)
 
   const { isShow, setIsShow, ref } = useClosing(false)
 
@@ -28,6 +27,7 @@ const ProfileMenu: FC = () => {
 
   return (
     <>
+      <VideoUpload></VideoUpload>
       <div className={styles.notificationContainer}>
         <Image
           src={notificationPic}

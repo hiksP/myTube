@@ -1,11 +1,18 @@
 .searchBar {
-  @apply ml-[21%] flex h-[45px] w-[45%] items-center rounded-2xl border border-solid border-lightBlack px-3;
+  @apply relative ml-[21%] flex h-[45px] w-[45%] items-center;
 }
 
 .searchPic {
-  @apply mr-2;
+  @apply absolute left-2;
 }
 
 .input {
-  @apply w-full border-none bg-transparent text-base font-medium text-lightBlack outline-none;
+  @apply h-full w-full rounded-2xl border border-solid border-lightBlack  bg-transparent pl-10 text-base font-medium text-lightBlack outline-none;
+  &:focus {
+    @apply border-none outline-darkRed;
+  }
+}
+
+.videos {
+  @apply absolute top-16 z-10 rounded-md bg-darkWhite shadow-md shadow-lightGray;
 }

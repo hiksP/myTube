@@ -1,0 +1,10 @@
+.button {
+  @apply flex h-[50px] w-[50px] items-center justify-center rounded-full transition-colors;
+  &:hover {
+    @apply cursor-pointer bg-lightGray;
+  }
+}
+
+.icon {
+  @apply h-[30px] w-[30px];
+}

@@ -13,7 +13,6 @@ const IconsMenu: FC = () => {
       {user ? (
         <>
           <ProfileMenu></ProfileMenu>
-          <VideoUpload></VideoUpload>
         </>
       ) : (
         <Auth></Auth>
