@@ -6,7 +6,7 @@ const nextConfig = {
     APP_URL: process.env.APP_URL
   },
   images: {
-    domains: ['localhost']
+    domains: ['localhost:5000', 'localhost']
   },
   async rewrites() {
     return [

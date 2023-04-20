@@ -10,12 +10,48 @@
 }
 
 .avatarContainer {
-  @apply flex items-center justify-center;
+  @apply relative flex items-center justify-center;
   &:hover {
     @apply cursor-pointer;
   }
 }
 
 .avatar {
-  @apply rounded-full shadow-lg;
+  @apply rounded-full shadow-sm shadow-lightBlack;
+}
+
+.menu {
+  @apply shadow-block absolute  right-2 z-10 flex min-h-[300px] min-w-[220px] animate-scaleIn flex-col rounded-xl bg-white px-2 py-2;
+  top: calc(100% + 1.25rem);
+}
+
+.upperContainer {
+  @apply mb-5 flex flex-row items-center gap-2 border-b-[1px] border-b-lightGray border-opacity-60 pb-3;
+}
+
+.info {
+  @apply flex flex-col;
+}
+
+.name {
+  @apply text-xl font-normal text-lightBlack;
+}
+
+.list {
+  @apply flex flex-col;
+}
+
+.el {
+  @apply -ml-2 flex h-[40px] w-[calc(100%+16px)] items-center rounded-sm transition-opacity;
+  &:hover {
+    @apply cursor-pointer bg-lightGray opacity-40;
+  }
+}
+
+.icon {
+  @apply mx-2;
+}
+
+.elName {
+  @apply text-base font-normal text-lightBlack;
 }
