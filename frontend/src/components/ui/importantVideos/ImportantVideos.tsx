@@ -4,12 +4,21 @@ import iran from '../../../assets/iran.jpg'
 import Image from 'next/image'
 import avatar from '../../../assets/avatar.jpg'
 import ImportantVideo from '../ImportantVideo/ImportantVideo'
+import { IVideo } from '../../../types/video.interface'
 
-const ImportantVideos: FC = () => {
+interface IImportantVideos {
+  mostPopular: IVideo
+  randomVideo: IVideo
+}
+
+const ImportantVideos: FC<IImportantVideos> = ({
+  mostPopular,
+  randomVideo
+}) => {
   return (
     <section className={styles.videos}>
-      <ImportantVideo isTrendy={true}></ImportantVideo>
-      <ImportantVideo isTrendy={false}></ImportantVideo>
+      <ImportantVideo video={mostPopular} isTrendy={true}></ImportantVideo>
+      <ImportantVideo video={randomVideo} isTrendy={false}></ImportantVideo>
     </section>
   )
 }

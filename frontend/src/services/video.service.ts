@@ -7,6 +7,6 @@ export const VideoService = {
   },
 
   async getTrendy() {
-    return axiosApi.get<IVideo>(`/video/trends`)
+    return axiosApi.get<IVideo[]>(`/video/trend`)
   }
 }

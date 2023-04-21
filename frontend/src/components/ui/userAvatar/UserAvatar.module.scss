@@ -1,0 +1,14 @@
+.link {
+  @apply flex flex-row-reverse;
+}
+
+.avatar {
+  @apply relative -mt-[25px] self-end rounded-full border border-lightGray p-1 transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+}
+
+.isVerified {
+  @apply absolute bottom-[51px] text-blue-600;
+}

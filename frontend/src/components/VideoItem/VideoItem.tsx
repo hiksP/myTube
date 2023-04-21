@@ -3,11 +3,12 @@ import Image from 'next/image'
 import styles from './VideoItem.module.scss'
 import { IVideo } from '../../types/video.interface'
 import numberFormatting from '../../utils/numberFormatting.utils'
+import UserAvatar from '../ui/userAvatar/UserAvatar'
 
 const VideoItem: FC<{ item: IVideo }> = ({ item }) => {
   return (
     <div className={styles.container}>
-      <p className={styles.duration}>15</p>
+      <time className={styles.duration}>15</time>
       <Image
         className={styles.thumbnail}
         width={165}
@@ -16,15 +17,14 @@ const VideoItem: FC<{ item: IVideo }> = ({ item }) => {
         src={item.thumbnailPath}
         priority
       />
-      <Image
-        className={styles.avatar}
-        src={String(item.user?.avatarPath)}
-        alt={String(item.user?.name)}
-        width={50}
-        height={50}
-      />
+      <UserAvatar
+        avatar={String(item.user?.avatarPath)}
+        name={String(item.user?.name)}
+        isVerified={!!item.user?.isVerified}
+        id={Number(item.user?.id)}
+      ></UserAvatar>
       <h2 className={styles.title}>{item.name}</h2>
-      <p className={styles.vies}>{numberFormatting(item.views) + ' views'}</p>
+      <p className={styles.views}>{numberFormatting(item.views) + ' views'}</p>
     </div>
   )
 }

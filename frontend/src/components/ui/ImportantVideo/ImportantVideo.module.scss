@@ -1,5 +1,5 @@
 .mostPopular {
-  @apply relative flex flex-col;
+  @apply relative flex flex-col gap-6;
   transition: 0.25s;
   &:hover {
     @apply cursor-pointer;

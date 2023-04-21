@@ -10,7 +10,7 @@
 }
 
 .thumbnail {
-  @apply rounded-lg;
+  @apply pointer-events-none rounded-lg object-cover object-center;
 }
 
 .duration {
@@ -21,18 +21,14 @@
   @apply flex flex-col items-center;
 }
 
-.avatar {
-  @apply -mt-[25px] self-end rounded-full border border-lightGray p-1;
-}
-
 .title {
-  @apply mb-2 text-lg font-normal text-lightBlack;
+  @apply mb-2 ml-1 text-base  font-normal text-lightBlack;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .views {
-  @apply ml-auto text-base font-normal text-lightBlack;
+  @apply ml-1 text-base font-normal text-lightBlack;
 }

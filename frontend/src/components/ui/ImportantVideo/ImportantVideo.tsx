@@ -1,51 +1,51 @@
 import { FC } from 'react'
 import styles from './ImportantVideo.module.scss'
-import iran from '../../../assets/iran.jpg'
 import Image from 'next/image'
-import avatar from '../../../assets/avatar.jpg'
+import { IVideo } from '../../../types/video.interface'
+import numberFormatting from '../../../utils/numberFormatting.utils'
+import VideoStatistic from '../RecomendedVideo/VideoStatistic'
 
 export interface IImportantVideo {
+  video: IVideo
   isTrendy: boolean
 }
 
-const ImportantVideo: FC<IImportantVideo> = ({ isTrendy }) => {
-  const width = isTrendy ? 700 : 500
-  const height = isTrendy ? 300 : 200
-
+const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
   return (
     <div className={styles.mostPopular}>
       <div className={styles.imageContainer}>
         <Image
           className={styles.thumbnail}
-          src={iran}
-          width={width}
-          height={height}
+          src={String(video.thumbnailPath)}
+          width={700}
+          height={300}
           alt='video'
         ></Image>
       </div>
       <div className={styles.content}>
         <h3 className={isTrendy ? styles.title : styles.titleSmall}>
-          Иран усачев
+          {video.name}
         </h3>
         <Image
           className={styles.avatar}
-          src={avatar}
+          src={String(video.user?.avatarPath)}
           width={50}
           height={50}
           alt='avatar'
         ></Image>
-        <p className={styles.name}>Руслан Усачев</p>
+        <p className={styles.name}>{video.user?.name}</p>
         <div
           className={
             isTrendy ? styles.infoContainer : styles.infoContainerSmall
           }
         >
-          <div className={styles.viewsContainer}>
-            <p className={styles.views}>500k</p>
-            <p className={styles.views}>2 дня назад</p>
-          </div>
+          <VideoStatistic
+            views={video.views}
+            createdAt={video.createdAt}
+            isWhite={true}
+          ></VideoStatistic>
           <div className={styles.durationContainer}>
-            <p className={styles.time}>23m</p>
+            <p className={styles.time}>{video.duration}</p>
           </div>
         </div>
       </div>

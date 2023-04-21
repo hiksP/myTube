@@ -5,13 +5,11 @@ import RecomendedVideo from '../RecomendedVideo/RecomendedVideo'
 
 const RecomendationList: FC<{ videos: IVideo[] }> = ({ videos }) => {
   return (
-    <>
-      <ul className={styles.list}>
-        {videos.map(video => (
-          <RecomendedVideo video={video} key={video.id}></RecomendedVideo>
-        ))}
-      </ul>
-    </>
+    <ul className={styles.list}>
+      {videos.map(video => (
+        <RecomendedVideo item={video} key={video.id}></RecomendedVideo>
+      ))}
+    </ul>
   )
 }
 
