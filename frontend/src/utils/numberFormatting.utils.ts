@@ -11,3 +11,5 @@ function numberFormatting(num: number): string {
   }
   return shortNum + suffixes[suffixNum]
 }
+
+export default numberFormatting
