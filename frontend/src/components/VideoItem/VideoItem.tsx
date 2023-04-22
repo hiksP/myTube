@@ -22,6 +22,7 @@ const VideoItem: FC<{ item: IVideo }> = ({ item }) => {
         name={String(item.user?.name)}
         isVerified={!!item.user?.isVerified}
         id={Number(item.user?.id)}
+        isRecomended={false}
       ></UserAvatar>
       <h2 className={styles.title}>{item.name}</h2>
       <p className={styles.views}>{numberFormatting(item.views) + ' views'}</p>

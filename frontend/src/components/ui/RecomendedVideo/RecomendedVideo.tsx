@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/legacy/image'
 import VideoStatistic from './VideoStatistic'
 import { IVideoItem } from '../../../types/videoItem.interface'
+import UserAvatar from '../userAvatar/UserAvatar'
 
 const RecomendedVideo: FC<IVideoItem> = ({
   item,
@@ -14,6 +15,7 @@ const RecomendedVideo: FC<IVideoItem> = ({
 
   return (
     <li className={styles.item}>
+      <time className={styles.duration}>{item.duration}</time>
       {!!removeHandler && (
         <button
           onClick={() => removeHandler(item.id)}
@@ -26,26 +28,26 @@ const RecomendedVideo: FC<IVideoItem> = ({
           onClick={() => push(`/video/edit/${item.id}`)}
         ></button>
       )}
-      <time className={styles.duration}>{item.duration}</time>
-      <div className={styles.thumbnail}>
+      <span>
         <Image
           src={item.thumbnailPath}
+          className={styles.thumbnail}
           width={185}
           height={103}
           layout='responsive'
           alt={item.name}
         ></Image>
-      </div>
+      </span>
+      <UserAvatar
+        avatar={String(item.user?.avatarPath)}
+        name={String(item.user?.name)}
+        isVerified={!!item.user?.isVerified}
+        id={Number(item.user?.id)}
+        isRecomended={true}
+      ></UserAvatar>
       <div className={styles.content}>
-        <Image
-          src={String(item.user?.avatarPath)}
-          className={styles.avatar}
-          width={50}
-          height={50}
-          alt={String(item.user?.name)}
-        ></Image>
         <p className={styles.author}>{String(item.user?.name)}</p>
-        <h3 className={styles.videoTitle}>Nazvanie</h3>
+        <h3 className={styles.videoTitle}>{item.name}</h3>
         <VideoStatistic
           views={item.views}
           createdAt={item.createdAt}

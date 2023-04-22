@@ -9,6 +9,10 @@
   }
 }
 
+.isVerifiedBig {
+  @apply absolute bottom-[105px] text-blue-600;
+}
+
 .isVerified {
   @apply absolute bottom-[51px] text-blue-600;
 }

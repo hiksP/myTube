@@ -23,9 +23,7 @@ const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
         ></Image>
       </div>
       <div className={styles.content}>
-        <h3 className={isTrendy ? styles.title : styles.titleSmall}>
-          {video.name}
-        </h3>
+        <h3 className={styles.title}>{video.name}</h3>
         <Image
           className={styles.avatar}
           src={String(video.user?.avatarPath)}
@@ -34,11 +32,7 @@ const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
           alt='avatar'
         ></Image>
         <p className={styles.name}>{video.user?.name}</p>
-        <div
-          className={
-            isTrendy ? styles.infoContainer : styles.infoContainerSmall
-          }
-        >
+        <div className={styles.infoContainer}>
           <VideoStatistic
             views={video.views}
             createdAt={video.createdAt}
