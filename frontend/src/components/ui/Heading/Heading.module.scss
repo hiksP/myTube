@@ -1,0 +1,15 @@
+.titleContainer {
+  @apply flex flex-row;
+}
+
+.title {
+  @apply mr-2 text-center text-2xl font-bold text-lightBlack;
+}
+
+.line {
+  @apply relative h-[2px] w-[150px] self-center bg-lightGray opacity-70;
+}
+
+.box {
+  @apply absolute -bottom-2 left-6 h-[16px] w-[32px] self-center rounded-lg bg-darkRed;
+}

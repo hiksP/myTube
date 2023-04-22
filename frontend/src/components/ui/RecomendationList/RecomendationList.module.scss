@@ -1,3 +1,7 @@
 .list {
-  @apply mb-6 mt-10 flex flex-wrap items-center justify-between gap-3;
+  @apply mb-6 mt-10 flex flex-wrap items-center gap-6;
+}
+
+.between {
+  @apply justify-between;
 }

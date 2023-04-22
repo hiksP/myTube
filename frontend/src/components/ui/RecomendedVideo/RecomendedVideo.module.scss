@@ -7,9 +7,9 @@
 }
 
 .thumbnail {
-  @apply rounded-lg object-cover object-center px-1 transition-opacity;
+  @apply rounded-lg bg-lightBlack object-center px-1 transition-opacity;
   &:hover {
-    @apply cursor-pointer opacity-40;
+    @apply cursor-pointer opacity-70;
   }
 }
 
@@ -22,7 +22,7 @@
 }
 
 .content {
-  @apply ml-1 flex h-[50%] flex-col pb-1;
+  @apply mx-1 flex h-[50%] flex-col pb-1;
 }
 
 .author {
@@ -38,5 +38,5 @@
 }
 
 .infoContainer {
-  @apply flex flex-row justify-between gap-2 px-1 text-sm;
+  @apply flex flex-row justify-between gap-2 text-sm;
 }

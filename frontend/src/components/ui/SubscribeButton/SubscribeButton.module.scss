@@ -1,0 +1,13 @@
+.button {
+  @apply flex h-[35px] w-[120px] items-center justify-center self-center rounded-3xl bg-darkRed text-base text-white transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-70;
+  }
+}
+
+.subscribed {
+  @apply bg-lightGray;
+  &:hover {
+    @apply cursor-pointer opacity-70;
+  }
+}

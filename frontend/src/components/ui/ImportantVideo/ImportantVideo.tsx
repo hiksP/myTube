@@ -19,7 +19,8 @@ const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
           src={String(video.thumbnailPath)}
           width={700}
           height={300}
-          alt='video'
+          alt={video.name}
+          priority
         ></Image>
       </div>
       <div className={styles.content}>
@@ -39,7 +40,7 @@ const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
             isWhite={true}
           ></VideoStatistic>
           <div className={styles.durationContainer}>
-            <p className={styles.time}>{video.duration}</p>
+            <p className={styles.time}>{video.duration + ' m'}</p>
           </div>
         </div>
       </div>

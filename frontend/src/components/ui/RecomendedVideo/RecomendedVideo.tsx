@@ -11,7 +11,9 @@ const RecomendedVideo: FC<IVideoItem> = ({
   isUpdateLink,
   removeHandler
 }) => {
-  const { push } = useRouter()
+  const { push, pathname } = useRouter()
+
+  const isChannelPage = pathname === `/channel/[id]`
 
   return (
     <li className={styles.item}>
@@ -38,15 +40,17 @@ const RecomendedVideo: FC<IVideoItem> = ({
           alt={item.name}
         ></Image>
       </span>
-      <UserAvatar
-        avatar={String(item.user?.avatarPath)}
-        name={String(item.user?.name)}
-        isVerified={!!item.user?.isVerified}
-        id={Number(item.user?.id)}
-        isRecomended={true}
-      ></UserAvatar>
+      {isChannelPage ? null : (
+        <UserAvatar
+          avatar={String(item.user?.avatarPath)}
+          name={String(item.user?.name)}
+          isVerified={!!item.user?.isVerified}
+          id={Number(item.user?.id)}
+          isChannel={isChannelPage}
+        ></UserAvatar>
+      )}
       <div className={styles.content}>
-        <p className={styles.author}>{String(item.user?.name)}</p>
+        <p className={styles.author}>{item.user?.name || ''}</p>
         <h3 className={styles.videoTitle}>{item.name}</h3>
         <VideoStatistic
           views={item.views}

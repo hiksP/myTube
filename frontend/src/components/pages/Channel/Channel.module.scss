@@ -1,0 +1,31 @@
+.channel {
+  @apply mt-[100px] flex flex-col;
+}
+
+.mainContainer {
+  @apply flex flex-row justify-between;
+}
+
+.leftContainer {
+  @apply flex max-w-[450px] flex-col gap-2;
+}
+
+.container {
+  @apply relative flex flex-row justify-start gap-4;
+}
+
+.info {
+  @apply flex flex-col items-start gap-2;
+}
+
+.name {
+  @apply text-xl font-semibold text-lightBlack;
+}
+
+.subscribers {
+  @apply text-sm font-light text-lightBlack;
+}
+
+.description {
+  @apply text-lg font-medium text-lightBlack;
+}

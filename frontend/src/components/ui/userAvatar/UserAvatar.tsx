@@ -9,7 +9,7 @@ interface IUserAvatar {
   name: string
   isVerified: boolean
   id: number
-  isRecomended: boolean
+  isChannel: boolean
 }
 
 const UserAvatar: FC<IUserAvatar> = ({
@@ -17,7 +17,7 @@ const UserAvatar: FC<IUserAvatar> = ({
   name,
   isVerified,
   id,
-  isRecomended
+  isChannel
 }) => {
   return (
     <Link href={`channel/${id}`} className={styles.link}>
@@ -30,7 +30,7 @@ const UserAvatar: FC<IUserAvatar> = ({
       />
       {isVerified && (
         <HiOutlineCheckCircle
-          className={isRecomended ? styles.isVerifiedBig : styles.isVerified}
+          className={isChannel ? styles.isVerifiedBig : styles.isVerified}
         />
       )}
     </Link>

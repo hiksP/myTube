@@ -1,11 +1,19 @@
 import { FC } from 'react'
 import styles from './RecomendationList.module.scss'
-import { IVideo } from '../../../types/video.interface'
 import RecomendedVideo from '../RecomendedVideo/RecomendedVideo'
+import { IRecomendations } from '../../Recomendations/Recomendations'
 
-const RecomendationList: FC<{ videos: IVideo[] }> = ({ videos }) => {
+const RecomendationList: FC<IRecomendations> = ({ videos }) => {
+  const isVideosMoreThanFour = videos.length >= 4
+
   return (
-    <ul className={styles.list}>
+    <ul
+      className={
+        isVideosMoreThanFour
+          ? `${styles.list} + ' ' + ${styles.between}`
+          : styles.list
+      }
+    >
       {videos.map(video => (
         <RecomendedVideo item={video} key={video.id}></RecomendedVideo>
       ))}

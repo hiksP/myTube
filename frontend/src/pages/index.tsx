@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const notMostPopular = newVideos.filter(v => v.id !== mostPopular[0].id)
     return {
       props: {
-        newVideos: newVideos,
+        newVideos: newVideos.sort(() => Math.random() - 0.5),
         mostPopular: mostPopular[0],
         randomVideo: getRandomVideo(notMostPopular) || ({} as IVideo)
       } as IHome

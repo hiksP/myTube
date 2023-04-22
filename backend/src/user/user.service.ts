@@ -57,6 +57,14 @@ export class UserService {
   }
 
   async subscribe(id: number, channelId: number) {
+    const user = await this.subscriptionRepository.find({
+      relations: {
+        fromUser: true,
+        toChannel: true
+      }
+    })
+    console.log(user)
+
     const userSubscription = {
       toChannel: { id: channelId },
       fromUser: { id }
@@ -73,6 +81,7 @@ export class UserService {
       await this.subscriptionRepository.save(newSubscribe)
       return true
     }
+
     await this.subscriptionRepository.delete(userSubscription)
     return false
   }

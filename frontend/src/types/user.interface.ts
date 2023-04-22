@@ -9,7 +9,7 @@ export interface IUser extends IBase {
   description: string
   avatarPath: string
   videos?: IVideo[]
-  subscripbtions: ISubscriptions[]
+  subscriptions: ISubscriptions[]
 }
 
 export interface ISubscriptions extends IBase {
