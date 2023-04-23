@@ -4,8 +4,16 @@ import Image from 'next/image'
 import logoHeader from '../../assets/logoHeader.png'
 import { menuItems } from '../ui/Menu/menu.data'
 import Menu from '../ui/Menu/Menu'
+import { useAuth } from '../../hooks/useAuth'
+import { api } from '../../store/api/api'
 
 const Sidebar: FC = () => {
+  const { user } = useAuth()
+
+  const { data, isLoading } = api.useGetProfileQuery(null, {
+    skip: !user
+  })
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.container}>
@@ -22,7 +30,18 @@ const Sidebar: FC = () => {
         <Menu items={menuItems} title='Меню'></Menu>
         <div className={styles.line}></div>
       </nav>
-      <Menu items={menuItems} title='Мои подписки'></Menu>
+      {user && (
+        <Menu
+          title={'Мои подписки'}
+          items={
+            data?.subscriptions.map(({ toChannel }) => ({
+              image: toChannel.avatarPath,
+              title: toChannel.name,
+              link: '/channel/' + toChannel.id
+            })) || []
+          }
+        />
+      )}
     </div>
   )
 }

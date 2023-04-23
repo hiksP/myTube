@@ -1,7 +1,7 @@
 .item {
   @apply block flex-row items-center transition-opacity;
   &:hover {
-    @apply opacity-75;
+    @apply opacity-70;
   }
 }
 
@@ -12,7 +12,7 @@
 .container {
   @apply relative flex;
   &::before {
-    @apply absolute -left-7 top-0 h-full w-[2.5px] -translate-x-1 rounded-lg bg-darkRed opacity-0 transition-transform;
+    @apply absolute -left-7 top-0 h-full w-[3px] -translate-x-1 rounded-lg bg-darkRed opacity-0 transition-transform;
     content: '';
   }
   &:hover::before {
@@ -33,13 +33,13 @@
 }
 
 .image {
-  @apply mr-2 rounded-full object-contain;
+  @apply mr-4 flex self-center rounded-full object-cover;
 }
 
 .title {
-  @apply text-lg font-semibold text-lightGray;
+  @apply flex self-center text-lg font-normal text-lightBlack;
 }
 
 .titleActive {
-  @apply text-lg font-semibold text-lightBlack;
+  @apply text-lg font-semibold text-black;
 }

@@ -2,16 +2,17 @@ import { FC } from 'react'
 import styles from './RecomendationList.module.scss'
 import RecomendedVideo from '../RecomendedVideo/RecomendedVideo'
 import { IRecomendations } from '../../Recomendations/Recomendations'
+import { useRouter } from 'next/router'
 
 const RecomendationList: FC<IRecomendations> = ({ videos }) => {
-  const isVideosMoreThanFour = videos.length >= 4
+  const { pathname } = useRouter()
+
+  const isChannelPage = pathname === '/channel[id]'
 
   return (
     <ul
       className={
-        isVideosMoreThanFour
-          ? `${styles.list} + ' ' + ${styles.between}`
-          : styles.list
+        isChannelPage ? `${styles.list} + ' ' + ${styles.between}` : styles.list
       }
     >
       {videos.map(video => (

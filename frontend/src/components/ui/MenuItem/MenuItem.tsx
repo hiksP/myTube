@@ -4,7 +4,7 @@ import { IMenuItem } from '../../../types/menuItem.interface'
 import Link from 'next/link'
 import { useAuth } from '../../../hooks/useAuth'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
   const { user } = useAuth()
@@ -30,8 +30,10 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
             {item.image && (
               <Image
                 src={item.image}
+                className={styles.image}
                 width={35}
                 height={35}
+                layout='fixed'
                 alt={item.title}
               ></Image>
             )}

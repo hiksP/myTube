@@ -13,8 +13,6 @@ const Channel: FC<IChannel> = ({ channel }) => {
     (video, b) => b.views - video.views
   )
 
-  console.log(channel)
-
   return (
     <Layout title={channel.name}>
       <section className={styles.channel}>
