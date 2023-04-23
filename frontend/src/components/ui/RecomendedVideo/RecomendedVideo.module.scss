@@ -1,5 +1,8 @@
 .item {
-  @apply relative flex w-[23%] flex-col rounded-lg bg-[#eaeaea] shadow-sm shadow-lightGray;
+  @apply relative flex w-[23%] flex-col rounded-lg bg-[#eaeaea] shadow-sm shadow-lightGray transition-all;
+  &:active {
+    @apply bg-darkWhite shadow-md shadow-darkRed;
+  }
 }
 
 .duration {

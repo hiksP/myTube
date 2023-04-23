@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { IVideo } from '../../../types/video.interface'
 import numberFormatting from '../../../utils/numberFormatting.utils'
 import VideoStatistic from '../RecomendedVideo/VideoStatistic'
+import { useRouter } from 'next/router'
 
 export interface IImportantVideo {
   video: IVideo
@@ -11,8 +12,13 @@ export interface IImportantVideo {
 }
 
 const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
+  const { push } = useRouter()
+
   return (
-    <div className={styles.mostPopular}>
+    <div
+      onClick={() => push(`/video/${video.id}`)}
+      className={styles.mostPopular}
+    >
       <div className={styles.imageContainer}>
         <Image
           className={styles.thumbnail}

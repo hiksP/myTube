@@ -1,0 +1,42 @@
+.wraper {
+  @apply relative mt-20 flex w-2/3 flex-col justify-center overflow-hidden rounded-[20px] shadow;
+}
+
+.player {
+  @apply w-full;
+}
+
+.controls {
+  @apply absolute bottom-4 left-4 flex w-[calc(100%_-_2rem)] items-center justify-between rounded-md bg-darkWhite bg-opacity-80 p-2.5 px-4 transition-all duration-[750ms];
+}
+
+.hide {
+  @apply bottom-0 opacity-0;
+}
+
+.button {
+  @apply h-[20px] w-[20px] transition-opacity;
+  &:hover {
+    @apply opacity-75;
+  }
+}
+
+.container {
+  @apply h-2 w-[85%] overflow-hidden rounded-sm bg-lightBlack bg-opacity-70;
+}
+
+.progressBar {
+  @apply h-full bg-darkRed;
+}
+
+.time {
+  @apply flex items-center;
+}
+
+.text {
+  @apply text-base text-lightBlack;
+}
+
+.textBetween {
+  @apply mx-1;
+}

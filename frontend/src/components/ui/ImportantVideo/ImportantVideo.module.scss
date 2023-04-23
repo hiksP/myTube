@@ -1,11 +1,12 @@
 .mostPopular {
-  @apply relative flex flex-col gap-6;
+  @apply relative flex flex-col gap-6 rounded-xl;
   transition: 0.25s;
   &:hover {
     @apply cursor-pointer;
-    &:hover {
-      transform: scale(1.01);
-    }
+    transform: scale(1.01);
+  }
+  &:active {
+    @apply bg-darkWhite shadow-md shadow-darkRed;
   }
 }
 

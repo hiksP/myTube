@@ -16,7 +16,7 @@ const RecomendedVideo: FC<IVideoItem> = ({
   const isChannelPage = pathname === `/channel/[id]`
 
   return (
-    <li className={styles.item}>
+    <li onClick={() => push(`/video/${item.id}`)} className={styles.item}>
       <time className={styles.duration}>{item.duration}</time>
       {!!removeHandler && (
         <button
