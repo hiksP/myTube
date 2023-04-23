@@ -56,14 +56,17 @@ export class UserService {
     return this.userRepository.save(user)
   }
 
-  async subscribe(id: number, channelId: number) {
-    const user = await this.subscriptionRepository.find({
-      relations: {
-        fromUser: true,
-        toChannel: true
+  async findAllSubsToChannel(toChannel: number) {
+    const allSubs = await this.subscriptionRepository.findAndCount({
+      where: {
+        toChannel: { id: toChannel }
       }
     })
-    console.log(user)
+    return allSubs[1]
+  }
+
+  async subscribe(id: number, channelId: number) {
+    const user = await this.byId(channelId)
 
     const userSubscription = {
       toChannel: { id: channelId },
@@ -79,10 +82,14 @@ export class UserService {
         userSubscription
       )
       await this.subscriptionRepository.save(newSubscribe)
+      user.subscribersCount = await this.findAllSubsToChannel(channelId)
+      await this.userRepository.save(user)
       return true
     }
 
     await this.subscriptionRepository.delete(userSubscription)
+    user.subscribersCount = await this.findAllSubsToChannel(channelId)
+    await this.userRepository.save(user)
     return false
   }
 
