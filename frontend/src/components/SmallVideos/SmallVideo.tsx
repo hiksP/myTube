@@ -5,6 +5,7 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useRouter } from 'next/router'
+import numberFormatting from '../../utils/numberFormatting.utils'
 
 dayjs.extend(relativeTime)
 
@@ -24,7 +25,9 @@ const SmallVideo: FC<{ video: IVideo }> = ({ video }) => {
       </span>
       <div className={styles.infoContainer}>
         <h3 className={styles.title}>{video.name}</h3>
-        <p className={styles.views}>{video.views + ' views'}</p>
+        <p className={styles.views}>
+          {numberFormatting(video.views) + ' views'}
+        </p>
         <p className={styles.views}>
           {dayjs(new Date(video.createdAt)).fromNow()}
         </p>

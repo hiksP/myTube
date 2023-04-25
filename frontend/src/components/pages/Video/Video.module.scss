@@ -1,5 +1,5 @@
 .top {
-  @apply flex flex-row items-center justify-between gap-8;
+  @apply flex flex-row items-center justify-between;
 }
 
 .videos {
@@ -7,5 +7,5 @@
 }
 
 .toWatch {
-  @apply mb-5 mt-20 text-2xl font-normal text-lightBlack;
+  @apply mb-5 ml-8 mt-20 text-2xl font-normal text-lightBlack;
 }

@@ -11,8 +11,6 @@ const SubscribeButton: FC<{
     skip: !user
   })
 
-  console.log(profile)
-
   const [subscribe, { isLoading, data }] = api.useSubscribeToChannelMutation()
 
   if (user?.id === channelId) return null

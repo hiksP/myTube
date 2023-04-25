@@ -1,0 +1,65 @@
+.container {
+  @apply mt-10 flex w-2/3 flex-row justify-between;
+}
+
+.leftCont {
+  @apply flex w-[60%] flex-col;
+}
+
+.userCont {
+  @apply mb-5 flex flex-row items-center gap-3;
+}
+
+.avatar {
+  @apply flex self-center rounded-full object-cover transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+}
+
+.infoUser {
+  @apply flex flex-col gap-1;
+}
+
+.name {
+  @apply text-lg font-normal text-lightBlack;
+}
+
+.subs {
+  @apply text-sm font-light text-lightBlack;
+}
+
+.title {
+  @apply mb-5 text-2xl font-semibold text-lightBlack;
+}
+
+.description {
+  @apply text-base font-normal text-lightBlack;
+}
+
+.rightCont {
+  @apply flex flex-col;
+}
+
+.buttons {
+  @apply mb-3 flex flex-row gap-2;
+}
+
+.like {
+  @apply flex h-[35px] w-[80px] items-center justify-center self-center rounded-3xl bg-darkRed text-base text-white transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-70;
+  }
+}
+
+.statistic {
+  @apply mt-5 flex flex-col gap-2;
+}
+
+.statisticItem {
+  @apply flex flex-row items-center gap-2;
+}
+
+.statisticText {
+  @apply text-center text-sm text-lightBlack;
+}

@@ -8,6 +8,7 @@ import { videoApi } from '../../../store/api/videoApi'
 import Comments from './comments/Comments'
 import { VideoService } from '../../../services/video.service'
 import SmallVideos from '../../SmallVideos/SmallVideos'
+import VideoDetail from './videoDetail/videoDetail'
 
 const Video: FC = () => {
   const { query } = useRouter()
@@ -41,6 +42,7 @@ const Video: FC = () => {
             <SmallVideos videos={someVideos}></SmallVideos>
           </div>
         </div>
+        <VideoDetail video={video}></VideoDetail>
         <Comments comments={video.comments} videoId={video.id}></Comments>
       </section>
     </Layout>

@@ -8,7 +8,7 @@ import UserAvatar from '../ui/userAvatar/UserAvatar'
 const VideoItem: FC<{ item: IVideo }> = ({ item }) => {
   return (
     <div className={styles.container}>
-      <time className={styles.duration}>15</time>
+      <time className={styles.duration}>{item.duration}</time>
       <Image
         className={styles.thumbnail}
         width={165}
