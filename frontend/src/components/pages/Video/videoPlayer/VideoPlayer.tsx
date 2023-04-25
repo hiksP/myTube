@@ -1,11 +1,12 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { usePlayer } from '../../../../hooks/usePlayer'
 import styles from './videoPlayer.module.scss'
 import { SlControlPause, SlControlPlay } from 'react-icons/sl'
 import { RiFullscreenFill } from 'react-icons/ri'
 
 const VideoPlayer: FC<{ path: string }> = ({ path }) => {
-  const { videoRef, toggleVideo, status, fullscreen } = usePlayer()
+  const { videoRef, toggleVideo, goOnClick, status, widthRef, fullscreen } =
+    usePlayer()
 
   return (
     <div className={styles.wraper}>
@@ -30,7 +31,11 @@ const VideoPlayer: FC<{ path: string }> = ({ path }) => {
             <SlControlPlay className={styles.button} />
           )}
         </button>
-        <div className={styles.container}>
+        <div
+          ref={widthRef}
+          onClick={e => goOnClick(e)}
+          className={styles.container}
+        >
           <div
             className={styles.progressBar}
             style={{ width: `${status.progress}%` }}
