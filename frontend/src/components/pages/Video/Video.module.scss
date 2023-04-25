@@ -1,0 +1,11 @@
+.top {
+  @apply flex flex-row items-center justify-between gap-8;
+}
+
+.videos {
+  @apply w-1/3;
+}
+
+.toWatch {
+  @apply mb-5 mt-20 text-2xl font-normal text-lightBlack;
+}

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Layout from '../../Layout/Layout'
 import styles from './Video.module.scss'
 import VideoPlayer from './videoPlayer/VideoPlayer'
@@ -6,9 +6,23 @@ import { useRouter } from 'next/router'
 import { IVideo } from '../../../types/video.interface'
 import { videoApi } from '../../../store/api/videoApi'
 import Comments from './comments/Comments'
+import { VideoService } from '../../../services/video.service'
+import SmallVideos from '../../SmallVideos/SmallVideos'
 
 const Video: FC = () => {
   const { query } = useRouter()
+
+  const [someVideos, SetSomeVideos] = useState<IVideo[]>([])
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const { data } = await VideoService.getAll()
+      const videoArrWithout = data.filter(v => v.id !== video.id)
+      const randomVideos = videoArrWithout.sort(() => Math.random() - 0.5)
+      SetSomeVideos(randomVideos.slice(0, 3))
+    }
+    fetchVideos()
+  }, [query])
 
   const { data: video = {} as IVideo } = videoApi.useGetVideoByIdQuery(
     Number(query.id),
@@ -20,7 +34,13 @@ const Video: FC = () => {
   return (
     <Layout title={video.name}>
       <section className={styles.VideoPage}>
-        <VideoPlayer path={video.videoPath}></VideoPlayer>
+        <div className={styles.top}>
+          <VideoPlayer path={video.videoPath}></VideoPlayer>
+          <div className={styles.videos}>
+            <p className={styles.toWatch}>Советуем к просмотру:</p>
+            <SmallVideos videos={someVideos}></SmallVideos>
+          </div>
+        </div>
         <Comments comments={video.comments} videoId={video.id}></Comments>
       </section>
     </Layout>

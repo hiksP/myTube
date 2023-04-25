@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { usePlayer } from '../../../../hooks/usePlayer'
 import styles from './videoPlayer.module.scss'
 import { SlControlPause, SlControlPlay } from 'react-icons/sl'
@@ -8,8 +8,30 @@ const VideoPlayer: FC<{ path: string }> = ({ path }) => {
   const { videoRef, toggleVideo, goOnClick, status, widthRef, fullscreen } =
     usePlayer()
 
+  const [isHovered, setIsHovered] = useState(false)
+  const [controllClass, setControllClass] = useState(`${styles.controls}`)
+
+  useEffect(() => {
+    if (isHovered) setControllClass(`${styles.controls}`)
+    if (status.isPlaying && isHovered) setControllClass(`${styles.controls}`)
+    if (!isHovered) setControllClass(`${styles.controls + ' ' + styles.hide}`)
+    if (!status.isPlaying) setControllClass(`${styles.controls}`)
+  }, [isHovered, status.isPlaying])
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
   return (
-    <div className={styles.wraper}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={styles.wraper}
+    >
       <video
         ref={videoRef}
         className={styles.player}
@@ -17,13 +39,7 @@ const VideoPlayer: FC<{ path: string }> = ({ path }) => {
         preload='metadata'
         onClick={toggleVideo}
       ></video>
-      <div
-        className={
-          status.isPlaying
-            ? `${styles.controls + ' ' + styles.hide}`
-            : styles.controls
-        }
-      >
+      <div className={controllClass}>
         <button onClick={toggleVideo}>
           {status.isPlaying ? (
             <SlControlPause className={styles.button} />

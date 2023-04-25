@@ -2,7 +2,6 @@ import { FC } from 'react'
 import styles from './ImportantVideo.module.scss'
 import Image from 'next/image'
 import { IVideo } from '../../../types/video.interface'
-import numberFormatting from '../../../utils/numberFormatting.utils'
 import VideoStatistic from '../RecomendedVideo/VideoStatistic'
 import { useRouter } from 'next/router'
 

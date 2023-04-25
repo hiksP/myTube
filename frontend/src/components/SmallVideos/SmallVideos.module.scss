@@ -1,0 +1,41 @@
+.list {
+  @apply flex flex-col items-center justify-center gap-7;
+}
+
+.videoContainer {
+  @apply flex w-full flex-row items-center gap-4;
+}
+
+.image {
+  @apply rounded-xl bg-black;
+}
+
+.thumbnail {
+  @apply rounded-xl object-cover object-center opacity-70 transition-opacity duration-700;
+  &:hover {
+    @apply cursor-pointer opacity-100;
+  }
+}
+
+.infoContainer {
+  @apply flex max-w-[44%] flex-col;
+}
+
+.title {
+  @apply mb-3 text-xl font-normal text-lightBlack;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.views {
+  @apply mb-1 text-sm text-lightBlack;
+}
+
+.author {
+  @apply mt-1 text-base text-lightBlack transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+}
