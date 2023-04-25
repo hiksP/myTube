@@ -1,0 +1,52 @@
+.title {
+  @apply mb-4 mt-8 text-2xl text-lightBlack;
+}
+
+.form {
+  @apply mb-4 flex w-full flex-row;
+}
+
+.list {
+  @apply mt-10 flex w-2/3 flex-col border-t border-t-lightBlack border-opacity-50 py-2;
+}
+
+.inputContainer {
+  @apply relative w-2/3;
+}
+
+.button {
+  @apply ml-auto mt-3 flex h-[40px] w-[115px] items-center justify-center rounded-xl bg-darkRed text-base text-darkWhite transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+  &:disabled {
+    @apply bg-lightGray;
+  }
+}
+
+.container {
+  @apply mt-4 flex flex-row items-center gap-4 pb-3;
+  &:last-of-type {
+    @apply pb-20;
+  }
+}
+
+.avatar {
+  @apply rounded-full object-cover;
+}
+
+.user {
+  @apply flex flex-col gap-2;
+}
+
+.name {
+  @apply text-xl font-medium text-lightBlack;
+}
+
+.text {
+  @apply text-base font-light text-lightBlack;
+}
+
+.last {
+  @apply mt-6 pb-20 text-2xl text-lightBlack;
+}

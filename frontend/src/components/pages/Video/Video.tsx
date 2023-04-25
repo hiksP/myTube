@@ -5,6 +5,7 @@ import VideoPlayer from './videoPlayer/VideoPlayer'
 import { useRouter } from 'next/router'
 import { IVideo } from '../../../types/video.interface'
 import { videoApi } from '../../../store/api/videoApi'
+import Comments from './comments/Comments'
 
 const Video: FC = () => {
   const { query } = useRouter()
@@ -17,9 +18,10 @@ const Video: FC = () => {
   )
 
   return (
-    <Layout title={'dsa'}>
+    <Layout title={video.name}>
       <section className={styles.VideoPage}>
         <VideoPlayer path={video.videoPath}></VideoPlayer>
+        <Comments comments={video.comments} videoId={video.id}></Comments>
       </section>
     </Layout>
   )
