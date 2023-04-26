@@ -148,7 +148,7 @@ export class VideoService {
 
   async updateVideoLikes(id: number) {
     const video = await this.byId(id)
-    video.likes++
+    // video.likes++
     return this.videoRepository.save(video)
   }
 }

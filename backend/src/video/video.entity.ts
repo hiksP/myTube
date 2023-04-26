@@ -1,4 +1,5 @@
 import { CommentEntity } from 'src/comment/comment.entity'
+import { LikeEntity } from 'src/like/like.entity'
 import { UserEntity } from 'src/user/user.entity'
 import { Base } from 'src/utils/base'
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm'
@@ -15,9 +16,6 @@ export class VideoEntity extends Base {
   views: number
 
   @Column({ default: 0 })
-  likes: number
-
-  @Column({ default: 0 })
   duration: number
 
   @Column({ default: '', name: 'video_path' })
@@ -32,6 +30,9 @@ export class VideoEntity extends Base {
   @ManyToOne(() => UserEntity, user => user.videos)
   @JoinColumn({ name: 'user_id' })
   user: UserEntity
+
+  @OneToMany(() => LikeEntity, like => like.video)
+  likes: LikeEntity[]
 
   @OneToMany(() => CommentEntity, comment => comment.video)
   comments: CommentEntity[]

@@ -2,6 +2,7 @@ import { Base } from 'src/utils/base'
 import { VideoEntity } from 'src/video/video.entity'
 import { Column, Entity, OneToMany } from 'typeorm'
 import { SubscriptionEntity } from './subscription.entity'
+import { LikeEntity } from 'src/like/like.entity'
 
 @Entity('User')
 export class UserEntity extends Base {
@@ -28,6 +29,9 @@ export class UserEntity extends Base {
 
   @OneToMany(() => VideoEntity, video => video.user)
   videos: VideoEntity[]
+
+  @OneToMany(() => LikeEntity, like => like.user)
+  likes: LikeEntity[]
 
   @OneToMany(() => SubscriptionEntity, subscribe => subscribe.fromUser)
   subscriptions: SubscriptionEntity[]

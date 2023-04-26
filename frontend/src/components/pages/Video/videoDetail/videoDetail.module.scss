@@ -10,11 +10,19 @@
   @apply mb-5 flex flex-row items-center gap-3;
 }
 
+.avatarCont {
+  @apply relative;
+}
+
 .avatar {
   @apply flex self-center rounded-full object-cover transition-opacity;
   &:hover {
     @apply cursor-pointer opacity-40;
   }
+}
+
+.verified {
+  @apply absolute -bottom-0  -right-[6px] text-blue-600;
 }
 
 .infoUser {

@@ -8,7 +8,8 @@ import { UserModule } from './user/user.module'
 import { VideoModule } from './video/video.module'
 import { CommentModule } from './comment/comment.module'
 import { AuthModule } from './auth/auth.module'
-import { MediaModule } from './media/media.module';
+import { MediaModule } from './media/media.module'
+import { LikeModule } from './like/like.module'
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { MediaModule } from './media/media.module';
     UserModule,
     VideoModule,
     CommentModule,
+    LikeModule,
     AuthModule,
     MediaModule
   ],

@@ -9,6 +9,7 @@ import Comments from './comments/Comments'
 import { VideoService } from '../../../services/video.service'
 import SmallVideos from '../../SmallVideos/SmallVideos'
 import VideoDetail from './videoDetail/videoDetail'
+import { likesApi } from '../../../store/api/likesApi'
 
 const Video: FC = () => {
   const { query } = useRouter()
@@ -32,6 +33,10 @@ const Video: FC = () => {
     }
   )
 
+  const { data: likes = [] } = likesApi.useGetLikesByIdQuery(Number(query.id), {
+    skip: !query.id
+  })
+
   return (
     <Layout title={video.name}>
       <section className={styles.VideoPage}>
@@ -42,7 +47,7 @@ const Video: FC = () => {
             <SmallVideos videos={someVideos}></SmallVideos>
           </div>
         </div>
-        <VideoDetail video={video}></VideoDetail>
+        <VideoDetail video={video} likes={likes}></VideoDetail>
         <Comments comments={video.comments} videoId={video.id}></Comments>
       </section>
     </Layout>

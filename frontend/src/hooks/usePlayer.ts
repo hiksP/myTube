@@ -30,11 +30,11 @@ export const usePlayer = () => {
   }, [isPlaying])
 
   const forward = () => {
-    if (videoRef.current) videoRef.current.currentTime += 5
+    if (videoRef.current) videoRef.current.currentTime += 2
   }
 
   const back = () => {
-    if (videoRef.current) videoRef.current.currentTime -= 5
+    if (videoRef.current) videoRef.current.currentTime -= 2
   }
 
   const fullscreen = () => {

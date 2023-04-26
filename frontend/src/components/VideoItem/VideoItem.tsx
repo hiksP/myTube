@@ -4,19 +4,24 @@ import styles from './VideoItem.module.scss'
 import { IVideo } from '../../types/video.interface'
 import numberFormatting from '../../utils/numberFormatting.utils'
 import UserAvatar from '../ui/userAvatar/UserAvatar'
+import { useRouter } from 'next/router'
 
 const VideoItem: FC<{ item: IVideo }> = ({ item }) => {
+  const { push } = useRouter()
+
   return (
     <div className={styles.container}>
       <time className={styles.duration}>{item.duration}</time>
-      <Image
-        className={styles.thumbnail}
-        width={165}
-        height={90}
-        alt={item.name}
-        src={item.thumbnailPath}
-        priority
-      />
+      <span onClick={() => push(`video/${item.id}`)}>
+        <Image
+          className={styles.thumbnail}
+          width={165}
+          height={90}
+          alt={item.name}
+          src={item.thumbnailPath}
+          priority
+        />
+      </span>
       <UserAvatar
         avatar={String(item.user?.avatarPath)}
         name={String(item.user?.name)}
