@@ -10,6 +10,7 @@ import { VideoService } from '../../../services/video.service'
 import SmallVideos from '../../SmallVideos/SmallVideos'
 import VideoDetail from './videoDetail/videoDetail'
 import { likesApi } from '../../../store/api/likesApi'
+import { ILikes } from '../../../types/like.interface'
 
 const Video: FC = () => {
   const { query } = useRouter()
@@ -33,9 +34,12 @@ const Video: FC = () => {
     }
   )
 
-  const { data: likes = [] } = likesApi.useGetLikesByIdQuery(Number(query.id), {
-    skip: !query.id
-  })
+  const { data: likes = {} as ILikes } = likesApi.useGetLikesByIdQuery(
+    Number(query.id),
+    {
+      skip: !query.id
+    }
+  )
 
   return (
     <Layout title={video.name}>

@@ -60,6 +60,13 @@
   }
 }
 
+.dislike {
+  @apply flex h-[35px] w-[80px] items-center justify-center self-center rounded-3xl bg-lightBlack text-base text-white transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-70;
+  }
+}
+
 .statistic {
   @apply mt-5 flex flex-col gap-2;
 }

@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { IVideo } from '../../../../types/video.interface'
 import styles from './videoDetail.module.scss'
 import Image from 'next/legacy/image'
 import SubscribeButton from '../../../ui/SubscribeButton/SubscribeButton'
-import { AiOutlineLike } from 'react-icons/ai'
+import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai'
 import { GrView } from 'react-icons/gr'
 import { ImCalendar } from 'react-icons/im'
 import dayjs from 'dayjs'
@@ -13,10 +13,14 @@ import { HiOutlineCheckCircle } from 'react-icons/hi'
 import { useAuth } from '../../../../hooks/useAuth'
 import { api } from '../../../../store/api/api'
 import { likesApi } from '../../../../store/api/likesApi'
+import { ILikes } from '../../../../types/like.interface'
 
 dayjs.extend(relativeTime)
 
-const VideoDetail: FC<{ video: IVideo; likes: any }> = ({ video, likes }) => {
+const VideoDetail: FC<{ video: IVideo; likes: ILikes }> = ({
+  video,
+  likes
+}) => {
   const [updateLike, { isLoading: isLikeLoading }] =
     likesApi.useCreateLikeMutation()
 
@@ -26,6 +30,22 @@ const VideoDetail: FC<{ video: IVideo; likes: any }> = ({ video, likes }) => {
   const { data: profile } = api.useGetProfileQuery(null, {
     skip: !user
   })
+
+  const [isLiked, setIsLiked] = useState(false)
+
+  useEffect(() => {
+    if (likes[0] == undefined) return
+    if (likes[0].length === 0) setIsLiked(false)
+    likes[0].forEach(item => {
+      if (item.user.id === profile?.id) {
+        setIsLiked(true)
+      } else {
+        setIsLiked(false)
+      }
+    })
+  }, [likes, isLikeLoading])
+
+  const component = !isLiked
 
   return (
     <div className={styles.container}>
@@ -62,9 +82,14 @@ const VideoDetail: FC<{ video: IVideo; likes: any }> = ({ video, likes }) => {
               updateLike({ userId: profile?.id, videoId: video.id })
             }
             disabled={isLikeLoading}
-            className={styles.like}
+            className={!isLiked ? styles.like : styles.dislike}
           >
-            <AiOutlineLike className={'mr-1'} /> Лайк
+            {isLiked ? (
+              <AiOutlineDislike className={'mr-1'} />
+            ) : (
+              <AiOutlineLike className={'mr-1'} />
+            )}
+            {isLiked ? '' : 'Лайк'}
           </button>
           <SubscribeButton channelId={Number(video.user?.id)}></SubscribeButton>
         </div>

@@ -43,6 +43,14 @@ export class LikeService {
     const allLikes = await this.likeRepository.findAndCount({
       where: {
         video: { id: videoId }
+      },
+      relations: {
+        user: true
+      },
+      select: {
+        user: {
+          id: true
+        }
       }
     })
     return allLikes
