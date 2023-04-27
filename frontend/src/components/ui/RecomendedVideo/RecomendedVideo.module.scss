@@ -40,6 +40,28 @@
   overflow: hidden;
 }
 
+.admin {
+  @apply mb-2 flex flex-row-reverse items-end gap-2;
+}
+
+.adminButton {
+  @apply flex items-center justify-center;
+}
+
+.remove {
+  @apply h-[20px] w-[20px] text-darkRed transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+}
+
+.update {
+  @apply h-[18px] w-[18px] text-blue-400 transition-opacity;
+  &:hover {
+    @apply cursor-pointer opacity-40;
+  }
+}
+
 .infoContainer {
   @apply flex flex-row justify-between gap-2 text-sm;
 }

@@ -12,11 +12,20 @@ export interface IRecomendations {
   isUpdateLink?: boolean
 }
 
-const Recomendations: FC<IRecomendations> = ({ videos, title }) => {
+const Recomendations: FC<IRecomendations> = ({
+  videos,
+  title,
+  removeHandler,
+  isUpdateLink
+}) => {
   return (
     <section className={styles.recomendations}>
       <Heading title={title || 'Рекомендации'}></Heading>
-      <RecomendationList videos={videos}></RecomendationList>
+      <RecomendationList
+        removeHandler={removeHandler}
+        isUpdateLink={isUpdateLink}
+        videos={videos}
+      ></RecomendationList>
     </section>
   )
 }

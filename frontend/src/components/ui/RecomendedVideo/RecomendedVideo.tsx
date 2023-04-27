@@ -5,6 +5,8 @@ import Image from 'next/legacy/image'
 import VideoStatistic from './VideoStatistic'
 import { IVideoItem } from '../../../types/videoItem.interface'
 import UserAvatar from '../userAvatar/UserAvatar'
+import { MdDeleteOutline } from 'react-icons/md'
+import { FiEdit2 } from 'react-icons/fi'
 
 const RecomendedVideo: FC<IVideoItem> = ({
   item,
@@ -14,25 +16,14 @@ const RecomendedVideo: FC<IVideoItem> = ({
   const { push, pathname } = useRouter()
 
   const isChannelPage = pathname === `/channel/[id]`
+  const isStudio = pathname === '/studio'
 
   return (
     <li className={styles.item}>
       <time className={styles.duration}>{item.duration}</time>
-      {!!removeHandler && (
-        <button
-          onClick={() => removeHandler(item.id)}
-          className={styles.remove}
-        ></button>
-      )}
-      {isUpdateLink && (
-        <button
-          className={styles.update}
-          onClick={() => push(`/video/edit/${item.id}`)}
-        ></button>
-      )}
       <span onClick={() => push(`/video/${item.id}`)}>
         <Image
-          src={item.thumbnailPath}
+          src={item.thumbnailPath || ''}
           className={styles.thumbnail}
           width={185}
           height={103}
@@ -40,9 +31,9 @@ const RecomendedVideo: FC<IVideoItem> = ({
           alt={item.name}
         ></Image>
       </span>
-      {isChannelPage ? null : (
+      {isChannelPage || isStudio ? null : (
         <UserAvatar
-          avatar={String(item.user?.avatarPath)}
+          avatar={item.user?.avatarPath || ''}
           name={String(item.user?.name)}
           isVerified={!!item.user?.isVerified}
           id={Number(item.user?.id)}
@@ -52,6 +43,24 @@ const RecomendedVideo: FC<IVideoItem> = ({
       <div className={styles.content}>
         <p className={styles.author}>{item.user?.name || ''}</p>
         <h3 className={styles.videoTitle}>{item.name}</h3>
+        <div className={styles.admin}>
+          {!!removeHandler && (
+            <button
+              className={styles.adminButton}
+              onClick={() => removeHandler(item.id)}
+            >
+              <MdDeleteOutline className={styles.remove}></MdDeleteOutline>
+            </button>
+          )}
+          {isUpdateLink && (
+            <button
+              className={styles.adminButton}
+              onClick={() => push(`/video/edit/${item.id}`)}
+            >
+              <FiEdit2 className={styles.update}></FiEdit2>
+            </button>
+          )}
+        </div>
         <VideoStatistic
           views={item.views}
           createdAt={item.createdAt}

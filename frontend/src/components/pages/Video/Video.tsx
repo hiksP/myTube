@@ -41,6 +41,12 @@ const Video: FC = () => {
     }
   )
 
+  const [updateViews] = videoApi.useUpdateViewsMutation()
+
+  useEffect(() => {
+    if (query.id) updateViews(Number(query.id))
+  }, [query.id])
+
   return (
     <Layout title={video.name}>
       <section className={styles.VideoPage}>

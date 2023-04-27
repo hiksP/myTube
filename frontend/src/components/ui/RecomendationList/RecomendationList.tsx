@@ -4,7 +4,11 @@ import RecomendedVideo from '../RecomendedVideo/RecomendedVideo'
 import { IRecomendations } from '../../Recomendations/Recomendations'
 import { useRouter } from 'next/router'
 
-const RecomendationList: FC<IRecomendations> = ({ videos }) => {
+const RecomendationList: FC<IRecomendations> = ({
+  videos,
+  removeHandler,
+  isUpdateLink
+}) => {
   const { pathname } = useRouter()
 
   const isChannelPage = pathname === '/channel[id]'
@@ -16,7 +20,12 @@ const RecomendationList: FC<IRecomendations> = ({ videos }) => {
       }
     >
       {videos.map(video => (
-        <RecomendedVideo item={video} key={video.id}></RecomendedVideo>
+        <RecomendedVideo
+          item={video}
+          key={video.id}
+          removeHandler={removeHandler}
+          isUpdateLink={isUpdateLink}
+        ></RecomendedVideo>
       ))}
     </ul>
   )

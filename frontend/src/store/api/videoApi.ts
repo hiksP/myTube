@@ -39,13 +39,6 @@ export const videoApi = api.injectEndpoints({
       }),
       invalidatesTags: (result, error, id) => [{ type: 'Video', id }]
     }),
-    updateLikes: builder.mutation<IVideo, number>({
-      query: id => ({
-        url: `/video/update-likes/${id}`,
-        method: 'PUT'
-      }),
-      invalidatesTags: (result, error, id) => [{ type: 'Video', id }]
-    }),
     deleteVideo: builder.mutation<void, number>({
       query: id => ({
         url: `/video/${id}`,

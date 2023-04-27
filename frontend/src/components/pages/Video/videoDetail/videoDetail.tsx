@@ -95,7 +95,7 @@ const VideoDetail: FC<{ video: IVideo; likes: ILikes }> = ({
         </div>
         <ul className={styles.statistic}>
           <li className={styles.statisticItem}>
-            <ImCalendar />
+            <GrView />
             <p className={styles.statisticText}>
               {video.views + ' просмотров'}
             </p>
@@ -105,7 +105,7 @@ const VideoDetail: FC<{ video: IVideo; likes: ILikes }> = ({
             <p className={styles.statisticText}>{likes[1] + ' лайков'}</p>
           </li>
           <li className={styles.statisticItem}>
-            <GrView />
+            <ImCalendar />
             <p className={styles.statisticText}>
               {dayjs(new Date(video.createdAt)).fromNow()}
             </p>
