@@ -2,7 +2,6 @@ import { FC } from 'react'
 import styles from './IconsMenu.module.scss'
 import { useAuth } from '../../hooks/useAuth'
 import ProfileMenu from '../ProfileMenu/ProfileMenu'
-import VideoUpload from '../VideoUpload/VideoUpload'
 import Auth from '../Auth/Auth'
 
 const IconsMenu: FC = () => {

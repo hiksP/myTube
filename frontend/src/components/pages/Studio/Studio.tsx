@@ -23,7 +23,9 @@ const Studio: FC = () => {
           isUpdateLink
         ></Recomendations>
       ) : (
-        <h2>Нет видео!</h2>
+        <h2 className='mt-10 text-center text-xl font-medium text-lightBlack'>
+          Нет видео!
+        </h2>
       )}
     </Layout>
   )

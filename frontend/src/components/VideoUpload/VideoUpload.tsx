@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import styles from './VideoUpload.module.scss'
 import { videoApi } from '../../store/api/videoApi'
 import { RiVideoAddFill } from 'react-icons/ri'
+import VideoUploadPopup from './VideoUploadPopup'
 
 const VideoUpload: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,6 +26,11 @@ const VideoUpload: FC = () => {
       >
         <RiVideoAddFill className={styles.icon} />
       </button>
+      <VideoUploadPopup
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        videoId={videoId}
+      ></VideoUploadPopup>
     </>
   )
 }

@@ -13,9 +13,9 @@ export const menuItems: IMenuItem[] = [
     link: '/trends'
   },
   {
-    title: 'Мой канал',
+    title: 'Студия',
     icon: HiUser,
-    link: '/my-channel'
+    link: '/studio'
   },
   {
     title: 'Мои подписки',

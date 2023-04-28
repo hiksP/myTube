@@ -16,12 +16,13 @@ export class MediaController {
 
   @HttpCode(200)
   @Post()
-  @Auth()
   @UseInterceptors(FileInterceptor('media'))
   async uploadFile(
     @UploadedFile() mediaFile: Express.Multer.File,
     @Query('folder') folder?: string
   ) {
+    console.log(folder)
+    console.log(mediaFile)
     return this.mediaService.saveMedia(mediaFile, folder)
   }
 }

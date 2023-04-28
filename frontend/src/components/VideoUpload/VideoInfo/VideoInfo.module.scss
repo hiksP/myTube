@@ -1,0 +1,11 @@
+.info {
+  @apply flex flex-col items-center justify-center;
+}
+
+.image {
+  @apply object-cover object-center;
+}
+
+.detail {
+  @apply flex flex-col justify-center gap-1;
+}

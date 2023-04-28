@@ -1,0 +1,7 @@
+.footer {
+  @apply flex flex-row items-center justify-between px-2;
+}
+
+.status {
+  @apply flex flex-row items-center justify-center gap-1;
+}

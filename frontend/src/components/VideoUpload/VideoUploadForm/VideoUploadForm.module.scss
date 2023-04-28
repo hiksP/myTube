@@ -1,0 +1,27 @@
+.message {
+  @apply absolute left-1/4 top-5 z-10 mx-auto flex w-1/2 animate-scaleIn items-center justify-center bg-green-500 p-2 text-center text-lg text-darkWhite shadow-black;
+}
+
+.container {
+  @apply w-7/12 pr-3;
+}
+
+.infoCont {
+  @apply w-5/12 p-3 pl-10;
+}
+
+.form {
+  @apply flex w-full justify-between pt-3;
+}
+
+.etwas {
+  @apply flex w-full flex-row justify-between;
+}
+
+.rightCont {
+  @apply flex flex-col gap-5;
+}
+
+.uploadScreen {
+  @apply mx-auto flex flex-col justify-center;
+}

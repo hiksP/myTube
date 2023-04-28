@@ -7,12 +7,15 @@ import ReduxToastrLib from 'react-redux-toastr'
 import NextProgressBar from 'nextjs-progressbar'
 import AuthProvider from '../providers/AuthProvider'
 import { TypeComponentAuthFields } from '../providers/ProtectedRoute.interface'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 type TypeAppProps = AppProps & TypeComponentAuthFields
 
+const queryClient = new QueryClient()
+
 export default function App({ Component, pageProps }: TypeAppProps) {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <NextProgressBar
         color='#ac231c'
         startPosition={0.25}
@@ -35,6 +38,6 @@ export default function App({ Component, pageProps }: TypeAppProps) {
           </AuthProvider>
         </PersistGate>
       </Provider>
-    </>
+    </QueryClientProvider>
   )
 }
