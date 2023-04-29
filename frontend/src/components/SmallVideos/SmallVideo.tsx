@@ -6,15 +6,16 @@ import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useRouter } from 'next/router'
 import numberFormatting from '../../utils/numberFormatting.utils'
+import Link from 'next/link'
 
 dayjs.extend(relativeTime)
 
 const SmallVideo: FC<{ video: IVideo }> = ({ video }) => {
-  const { push } = useRouter()
+  const router = useRouter()
 
   return (
     <div className={styles.videoContainer}>
-      <span className={styles.image} onClick={() => push(`/video/${video.id}`)}>
+      <Link className={styles.image} href={`/video/${video.id}`}>
         <Image
           className={styles.thumbnail}
           src={video.thumbnailPath}
@@ -22,7 +23,7 @@ const SmallVideo: FC<{ video: IVideo }> = ({ video }) => {
           height={120}
           alt={video.name}
         />
-      </span>
+      </Link>
       <div className={styles.infoContainer}>
         <h3 className={styles.title}>{video.name}</h3>
         <p className={styles.views}>
@@ -33,7 +34,7 @@ const SmallVideo: FC<{ video: IVideo }> = ({ video }) => {
         </p>
         <p
           className={styles.author}
-          onClick={() => push(`/channel/${video.user?.id}`)}
+          onClick={() => router.push(`/channel/${video.user?.id}`)}
         >
           {video.user?.name}
         </p>
