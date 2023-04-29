@@ -3,12 +3,18 @@ import { VideoEntity } from './video.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { FindOptionsWhereProperty, ILike, MoreThan, Repository } from 'typeorm'
 import { VideoDto } from './video.dto'
+import { CommentEntity } from 'src/comment/comment.entity'
+import { LikeEntity } from 'src/like/like.entity'
 
 @Injectable()
 export class VideoService {
   constructor(
     @InjectRepository(VideoEntity)
-    private readonly videoRepository: Repository<VideoEntity>
+    private readonly videoRepository: Repository<VideoEntity>,
+    @InjectRepository(CommentEntity)
+    private readonly commentRepository: Repository<CommentEntity>,
+    @InjectRepository(LikeEntity)
+    private readonly likeRepository: Repository<LikeEntity>
   ) {}
 
   async byId(id: number, isPublic = false) {
@@ -25,7 +31,8 @@ export class VideoService {
         user: true,
         comments: {
           user: true
-        }
+        },
+        likes: true
       },
       select: {
         user: {
@@ -46,6 +53,9 @@ export class VideoService {
             isVerified: true,
             subscribersCount: true
           }
+        },
+        likes: {
+          id: true
         }
       }
     })
@@ -137,6 +147,17 @@ export class VideoService {
   }
 
   async deleteVideo(id: number) {
+    const video = await this.byId(id)
+    if (video.likes) {
+      video.likes.forEach(async like => {
+        await this.likeRepository.delete(like)
+      })
+    }
+    if (video.comments) {
+      video.comments.forEach(async comment => {
+        await this.commentRepository.delete(comment)
+      })
+    }
     return this.videoRepository.delete({ id })
   }
 

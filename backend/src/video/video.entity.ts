@@ -36,4 +36,5 @@ export class VideoEntity extends Base {
 
   @OneToMany(() => CommentEntity, comment => comment.video)
   comments: CommentEntity[]
+  video: {}
 }

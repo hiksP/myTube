@@ -1,15 +1,11 @@
 function numberFormatting(num: number): string {
-  const suffixes: string[] = ['', 'k', 'm', 'b', 't']
-
-  const suffixNum: number = Math.floor(('' + num).length / 3)
-
-  let shortNum: number = parseFloat(
-    (suffixNum !== 0 ? num / Math.pow(1000, suffixNum) : num).toPrecision(2)
-  )
-  if (shortNum % 1 !== 0) {
-    shortNum = Number(shortNum.toFixed(1))
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + 'm'
+  } else if (num >= 1000) {
+    return (num / 1000).toFixed(0) + 'k'
+  } else {
+    return num.toString()
   }
-  return shortNum + suffixes[suffixNum]
 }
 
 export default numberFormatting

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from './UserAvatar.module.scss'
 import { HiOutlineCheckCircle } from 'react-icons/hi'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface IUserAvatar {
   avatar: string
@@ -20,7 +21,7 @@ const UserAvatar: FC<IUserAvatar> = ({
   isChannel
 }) => {
   return (
-    <Link href={`channel/${id}`} className={styles.link}>
+    <Link href={`/channel/${id}`} className={styles.link}>
       <Image
         className={styles.avatar}
         src={avatar}
