@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { IUploadField } from './UploadField.interface'
 import { useUploadFile } from './useUploadFile'
 import styles from './UploadFIeld.module.scss'
+import { useRouter } from 'next/router'
 
 const UploadField: FC<IUploadField> = ({
   title,
@@ -12,12 +13,20 @@ const UploadField: FC<IUploadField> = ({
 }) => {
   const { uploadFile } = useUploadFile(onChange, folder, setValue, setIsChosen)
 
+  const { pathname } = useRouter()
+
+  const isVideoEditPage = pathname === '/video/edit/[id]'
+
   return (
     <div className={styles.file}>
       {title && <h1>{title}</h1>}
-      <label>
+      <label className={!isVideoEditPage ? styles.label : styles.labelDark}>
         <span className='sr-only'>Выбери файл</span>
-        <input type='file' onChange={uploadFile}></input>
+        <input
+          type='file'
+          className={!isVideoEditPage ? styles.input : styles.inputDark}
+          onChange={uploadFile}
+        ></input>
       </label>
     </div>
   )

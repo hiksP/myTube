@@ -3,9 +3,13 @@
 }
 
 .image {
-  @apply object-cover object-center;
+  @apply rounded-sm object-cover object-center;
 }
 
 .detail {
-  @apply flex flex-col justify-center gap-1;
+  @apply mt-3 flex flex-col justify-center gap-1 text-lg text-darkWhite;
+}
+
+.detailBlack {
+  @apply mt-3 flex flex-col justify-center gap-1 text-xl text-black;
 }

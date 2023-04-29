@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './Toggle.module.scss'
 import { Switch } from '@headlessui/react'
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 
 interface IToggle {
   isEnabled: boolean
@@ -9,13 +10,17 @@ interface IToggle {
 }
 
 const Toggle: FC<IToggle> = ({ isEnabled, clickHandler }) => {
+  const { pathname } = useRouter()
+
+  const isVideoEdit = pathname === '/video/edit/[id]'
+
   return (
     <div className={styles.wrapper}>
       <Switch
         checked={isEnabled}
         onChange={clickHandler}
         className={cn(styles.switch, {
-          'bg-darkRed bg-opacity-70': isEnabled,
+          'bg-darkRed': isEnabled,
           'bg-lightBlack': !isEnabled
         })}
       >
@@ -26,7 +31,10 @@ const Toggle: FC<IToggle> = ({ isEnabled, clickHandler }) => {
           })}
         ></span>
       </Switch>
-      <span className={styles.public} onClick={clickHandler}>
+      <span
+        className={!isVideoEdit ? styles.public : styles.publicBlack}
+        onClick={clickHandler}
+      >
         Публичное видео
       </span>
     </div>

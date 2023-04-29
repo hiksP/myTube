@@ -20,7 +20,7 @@ const RecomendedVideo: FC<IVideoItem> = ({
 
   return (
     <li className={styles.item}>
-      <time className={styles.duration}>{item.duration}</time>
+      <time className={styles.duration}>{item.duration} мин.</time>
       <span onClick={() => push(`/video/${item.id}`)}>
         <Image
           src={item.thumbnailPath || ''}

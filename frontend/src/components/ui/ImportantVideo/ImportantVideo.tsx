@@ -45,7 +45,7 @@ const ImportantVideo: FC<IImportantVideo> = ({ video, isTrendy }) => {
             isWhite={true}
           ></VideoStatistic>
           <div className={styles.durationContainer}>
-            <p className={styles.time}>{video.duration + ' m'}</p>
+            <p className={styles.time}>{video.duration + ' мин.'}</p>
           </div>
         </div>
       </div>

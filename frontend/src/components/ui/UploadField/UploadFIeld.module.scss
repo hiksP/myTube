@@ -4,12 +4,20 @@
   > h1 {
     @apply mb-5 text-xl font-semibold;
   }
+}
 
-  > label {
-    @apply flex;
+.input {
+  @apply cursor-pointer rounded-sm text-sm text-gray-500 file:mr-4 file:block file:border-0 file:bg-blue-50 file:px-4 file:py-2 file:text-sm file:text-blue-700 file:transition-opacity hover:file:cursor-pointer hover:file:bg-blue-100 hover:file:opacity-60;
+}
 
-    > input {
-      @apply cursor-pointer rounded-sm text-sm text-gray-500 file:mr-4 file:block file:border-0 file:bg-blue-50 file:px-4 file:py-2 file:text-sm file:text-blue-700 file:transition-opacity hover:file:cursor-pointer hover:file:bg-blue-100 hover:file:opacity-60;
-    }
-  }
+.inputDark {
+  @apply cursor-pointer rounded-lg text-sm text-lightBlack file:mr-4 file:block file:border-0 file:bg-[#081322] file:px-4 file:py-2 file:text-sm file:text-darkWhite file:transition-opacity hover:file:cursor-pointer hover:file:opacity-60;
+}
+
+.label {
+  @apply flex;
+}
+
+.labelDark {
+  @apply flex justify-center;
 }

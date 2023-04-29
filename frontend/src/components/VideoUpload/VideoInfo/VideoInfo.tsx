@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './VideoInfo.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface IVideoInfo {
   videoId: number
@@ -16,6 +17,10 @@ const VideoInfo: FC<IVideoInfo> = ({
   fileName,
   isUploaded
 }) => {
+  const { pathname } = useRouter()
+
+  const isVideoEdit = pathname === '/video/edit/[id]'
+
   return (
     <div className={styles.info}>
       {!thumbnailPath ? (
@@ -31,7 +36,7 @@ const VideoInfo: FC<IVideoInfo> = ({
           alt=''
         />
       )}
-      <div className={styles.detail}>
+      <div className={!isVideoEdit ? styles.detail : styles.detailBlack}>
         <div>
           <span>Ссылка: </span>
           <span>
